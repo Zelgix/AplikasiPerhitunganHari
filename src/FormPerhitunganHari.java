@@ -99,14 +99,17 @@ private void sinkronisasiKalender() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        pnlUtama.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Aplikasi Perhitungan Hari", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Perpetua Titling MT", 1, 18))); // NOI18N
+        pnlUtama.setBackground(new java.awt.Color(51, 51, 51));
+        pnlUtama.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Aplikasi Perhitungan Hari", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Perpetua Titling MT", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         lblBulan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblBulan.setForeground(new java.awt.Color(255, 255, 255));
         lblBulan.setText("Pilih Bulan:");
 
         cmbBulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lblTahun.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTahun.setForeground(new java.awt.Color(255, 255, 255));
         lblTahun.setText("Pilih Tahun:");
 
         btnHitung.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -117,6 +120,7 @@ private void sinkronisasiKalender() {
             }
         });
 
+        pnlPerhitungan.setBackground(new java.awt.Color(153, 153, 153));
         pnlPerhitungan.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hasil Perhitungan", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         lblHasilJumlah.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -158,8 +162,10 @@ private void sinkronisasiKalender() {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
+        pnlSelisih.setBackground(new java.awt.Color(153, 153, 153));
         pnlSelisih.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hitung Selisih Hari", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
+        btnHitungSelisih.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnHitungSelisih.setText("HITUNG SELISIH");
         btnHitungSelisih.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,7 +253,7 @@ private void sinkronisasiKalender() {
                 .addGap(28, 28, 28))
             .addGroup(pnlUtamaLayout.createSequentialGroup()
                 .addComponent(pnlSelisih, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 67, Short.MAX_VALUE))
+                .addGap(0, 63, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
