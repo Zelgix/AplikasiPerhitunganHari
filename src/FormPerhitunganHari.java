@@ -51,7 +51,7 @@ private void initCustomComponents() {
     spnTahun.setModel(modelTahun);
     
     // Set locale untuk JCalendar
-    jCalendar1.setLocale(localeID);
+    jCalendarAwal.setLocale(localeID);
     jCalendarAwal.setLocale(localeID);
     jCalendarAkhir.setLocale(localeID);
     
@@ -63,8 +63,8 @@ private void initCustomComponents() {
 
 private void sinkronisasiKalender() {
     // Saat kalender berubah, update combo box dan spinner
-    jCalendar1.addPropertyChangeListener("calendar", evt -> {
-        Calendar cal = jCalendar1.getCalendar();
+    jCalendarAwal.addPropertyChangeListener("calendar", evt -> {
+        Calendar cal = jCalendarAwal.getCalendar();
         cmbBulan.setSelectedIndex(cal.get(Calendar.MONTH));
         spnTahun.setValue(cal.get(Calendar.YEAR));
     });
@@ -80,7 +80,6 @@ private void sinkronisasiKalender() {
     private void initComponents() {
 
         pnlUtama = new javax.swing.JPanel();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
         lblBulan = new javax.swing.JLabel();
         cmbBulan = new javax.swing.JComboBox<>();
         lblTahun = new javax.swing.JLabel();
@@ -92,10 +91,11 @@ private void sinkronisasiKalender() {
         lblHasilTerakhir = new javax.swing.JLabel();
         lblHasilKabisat = new javax.swing.JLabel();
         pnlSelisih = new javax.swing.JPanel();
-        jCalendarAwal = new com.toedter.calendar.JCalendar();
-        jCalendarAkhir = new com.toedter.calendar.JCalendar();
         btnHitungSelisih = new javax.swing.JButton();
         lblHasilSelisih = new javax.swing.JLabel();
+        jCalendarAwal = new com.toedter.calendar.JCalendar();
+        jCalendarAkhir = new com.toedter.calendar.JCalendar();
+        jCalendar3 = new com.toedter.calendar.JCalendar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,7 +117,7 @@ private void sinkronisasiKalender() {
             }
         });
 
-        pnlPerhitungan.setBorder(javax.swing.BorderFactory.createTitledBorder("Hasil Perhitungan"));
+        pnlPerhitungan.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hasil Perhitungan", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         lblHasilJumlah.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblHasilJumlah.setText("Jumlah Hari: -");
@@ -158,7 +158,7 @@ private void sinkronisasiKalender() {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        pnlSelisih.setBorder(javax.swing.BorderFactory.createTitledBorder("Hitung Selisih Hari"));
+        pnlSelisih.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hitung Selisih Hari", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         btnHitungSelisih.setText("HITUNG SELISIH");
         btnHitungSelisih.addActionListener(new java.awt.event.ActionListener() {
@@ -177,26 +177,23 @@ private void sinkronisasiKalender() {
             .addGroup(pnlSelisihLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlSelisihLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCalendarAwal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlSelisihLayout.createSequentialGroup()
                         .addGroup(pnlSelisihLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCalendarAkhir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jCalendarAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnHitungSelisih)
                             .addGroup(pnlSelisihLayout.createSequentialGroup()
-                                .addComponent(btnHitungSelisih)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(pnlSelisihLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lblHasilSelisih, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(30, Short.MAX_VALUE))))
+                                .addGap(6, 6, 6)
+                                .addComponent(lblHasilSelisih, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jCalendarAwal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         pnlSelisihLayout.setVerticalGroup(
             pnlSelisihLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSelisihLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jCalendarAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jCalendarAwal, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCalendarAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jCalendarAkhir, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnHitungSelisih)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -211,10 +208,13 @@ private void sinkronisasiKalender() {
             .addGroup(pnlUtamaLayout.createSequentialGroup()
                 .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlUtamaLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
+                        .addContainerGap()
+                        .addComponent(pnlPerhitungan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlUtamaLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
                         .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblBulan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblTahun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblTahun))
                         .addGap(53, 53, 53)
                         .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cmbBulan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -222,9 +222,7 @@ private void sinkronisasiKalender() {
                             .addComponent(btnHitung, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlUtamaLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pnlPerhitungan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jCalendar3, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(pnlSelisih, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -232,8 +230,8 @@ private void sinkronisasiKalender() {
         pnlUtamaLayout.setVerticalGroup(
             pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUtamaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(jCalendar3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(pnlUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBulan)
@@ -244,12 +242,12 @@ private void sinkronisasiKalender() {
                     .addComponent(spnTahun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnHitung)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addComponent(pnlPerhitungan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(176, 176, 176))
+                .addGap(28, 28, 28))
             .addGroup(pnlUtamaLayout.createSequentialGroup()
                 .addComponent(pnlSelisih, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 67, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -261,7 +259,7 @@ private void sinkronisasiKalender() {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlUtama, javax.swing.GroupLayout.PREFERRED_SIZE, 563, Short.MAX_VALUE)
+                .addComponent(pnlUtama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -369,10 +367,10 @@ private void sinkronisasiKalender() {
         int tahun = (Integer) spnTahun.getValue();
         int bulan = cmbBulan.getSelectedIndex();
         
-        Calendar cal = jCalendar1.getCalendar();
+        Calendar cal = jCalendarAwal.getCalendar();
         cal.set(Calendar.YEAR, tahun);
         cal.set(Calendar.MONTH, bulan);
-        jCalendar1.setCalendar(cal);
+        jCalendarAwal.setCalendar(cal);
         
         // Auto-hitung jika diinginkan
         // btnHitungActionPerformed(null);
@@ -418,7 +416,7 @@ private void sinkronisasiKalender() {
     private javax.swing.JButton btnHitung;
     private javax.swing.JButton btnHitungSelisih;
     private javax.swing.JComboBox<String> cmbBulan;
-    private com.toedter.calendar.JCalendar jCalendar1;
+    private com.toedter.calendar.JCalendar jCalendar3;
     private com.toedter.calendar.JCalendar jCalendarAkhir;
     private com.toedter.calendar.JCalendar jCalendarAwal;
     private javax.swing.JLabel lblBulan;
